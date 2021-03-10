@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css  ">
+</head>
+<body ng-app='myApp' ng-controller='myCtrl'>
+
+    <div class="folders">
+        <ul class="list-of-folders">
+            <li class="list-item" ng-repeat="folder in folders"><i class="fas fa-sort-down arrows" ng-class='rotate[folder.expanded]' ng-click='folder.expanded = !folder.expanded'></i>{{folder.name}} 
+                <ul ng-show="folder.expanded">
+                    <li ng-repeat='subfolder in folder.children'>
+                        <i class="fas fa-sort-down arrows" ng-class='rotate[subfolder.expanded]' ng-if='!subfolder.name.endsWith("css") && !subfolder.name.endsWith("html") && !subfolder.name.endsWith("ts")' ng-click='subfolder.expanded = !subfolder.expanded'></i>
+                        <i class="fab fa-html5 icon" ng-if='subfolder.name.endsWith("html")'></i> 
+                                <i class="fas fa-hashtag" ng-if='subfolder.name.endsWith("css")'></i>
+                                <i class="fab fa-js" ng-if='subfolder.name.endsWith("ts")'></i>
+                        {{subfolder.name}}
+                        <ul ng-show="subfolder.expanded">
+                            <li ng-repeat='files in subfolder.children'>
+                                <i class="fab fa-html5 icon" ng-if='files.name.endsWith("html")'></i> 
+                                <i class="fas fa-hashtag" ng-if='files.name.endsWith("css")'></i>
+                                <i class="fab fa-js" ng-if='files.name.endsWith("ts")'></i>
+                                {{files.name}}</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+    </body>
+</html>

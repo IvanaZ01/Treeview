@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #444;
+}
+
+.folders{
+    width: 320px;
+    height: 100vh;
+    padding: 2em 0;
+    background-color: #222;
+    color: white;
+}
+
+ul{
+    list-style: none;
+    margin-bottom: .5em;
+}
+
+li {
+    margin-bottom: .3em;
+}
+
+.arrows {
+    transform: rotate(-90deg);
+    padding: .5em;
+}
+
+.rotate{
+    transform: rotate(-45deg);
+}
+
+.fa-hashtag {
+color: rgb(69, 178, 221);
+}
+
+.fa-html5 {
+    color: rgb(255, 123, 0);
+}
+
+.fa-js{
+    color: yellow;
+}
